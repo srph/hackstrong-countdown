@@ -30,7 +30,7 @@ var App = React.createClass({
     return (
       <div style={Style.outerTable}>
         <div style={Style.innerTable}>
-          <img src="/dist/img/logo.png" style={LogoStyle} />
+          <img src="dist/img/logo.png" style={LogoStyle} />
           <Container />
         </div>
       </div>
