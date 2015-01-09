@@ -1,6 +1,13 @@
 body {
 	background: #000;
+	color: #fff !important;
 	overflow: hidden;
+}
+
+@media(max-width: 600px) {
+	body {
+		overflow: visible;
+	}
 }
 
 body::before {
@@ -10,11 +17,31 @@ body::before {
 	height: 100%;
 	width: 100%;
 	background: linear-gradient(90deg,rgba(255,0,0,0.24),rgba(13,13,255,0.28));
+	background-repeat: repeat;
 }
 
-.container {
-	color: #fff;
+.container {	
 	margin-top: 25px;
 	margin-bottom: 25px;
 	height: 100vh;
+}
+
+.avatar {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	height: 36px;
+	width: 36px;
+	border-radius: 50%;
+}
+
+footer {
+	opacity: 0.5;
+	position: absolute;
+	bottom: 25px;
+	left: 0;
+	right: 0;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
 }
