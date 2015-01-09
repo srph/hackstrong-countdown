@@ -9,10 +9,13 @@
   },
   "devDependencies": {
     "browserify": "^8.1.0",
-    "reactify": "^0.17.1"
+    "reactify": "^0.17.1",
+    "uglify-js": "^2.4.16"
   },
   "scripts": {
-    "build": "browserify src/App.js --transform [ reactify --es6 ] -o dist/script.js"
+    "build": "browserify src/App.js --transform [ reactify --es6 ] -o dist/script.js",
+    "uglify": "uglifyjs dist/script.js --compress --mangle  -o dist/script.js",
+    "start": "npm run build && npm run uglify"
   },
   "repository": {
     "type": "git",
