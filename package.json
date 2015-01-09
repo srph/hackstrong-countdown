@@ -1,0 +1,27 @@
+{
+  "name": "hackstrong-countdown",
+  "version": "1.0.0",
+  "description": "Countdown timer for HackStrong (AteneoHacks)",
+  "main": "script.js",
+  "dependencies": {
+    "react": "^0.12.2",
+    "react-tools": "^0.12.2"
+  },
+  "devDependencies": {
+    "browserify": "^8.1.0",
+    "reactify": "^0.17.1"
+  },
+  "scripts": {
+    "build": "browserify src/App.js --transform [ reactify --es6 ] -o dist/script.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/srph/hackstrong-countdown.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/srph/hackstrong-countdown/issues"
+  },
+  "homepage": "https://github.com/srph/hackstrong-countdown"
+}
