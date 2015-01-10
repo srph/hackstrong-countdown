@@ -4,8 +4,8 @@ var React = require('react');
 var If = require('./If.jsx');
 var Timer = require('./Timer.jsx');
 
-var _start = new Date('01/10/2015 10:00:00');
-var _deadline = new Date('01/11/2015 10:00:00');
+var _start = new Date('01/10/2015 11:00:00');
+var _deadline = new Date('01/11/2015 11:00:00');
 
 var Container = React.createClass({
   getInitialState: function() {

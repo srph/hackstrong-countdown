@@ -17,9 +17,7 @@ var Timer = React.createClass({
       var current = new Date();
       var deadline = this.props.deadline;
 
-      this.setState({
-        remaining: deadline - current
-      });
+      this.setState({ remaining: deadline - current });
     }.bind(this), 1000);
   },
 
@@ -32,9 +30,9 @@ var Timer = React.createClass({
 
   render: function() {
     var remaining = this.state.remaining;
-    var hh = pad( Math.round( (remaining % 86400000) / 3600000) );
-    var mm = pad( Math.round( ((remaining % 86400000) % 3600000) / 60000) );
-    var ss = pad( Math.round( ((((remaining % 86400000) % 3600000) / 60000) * 60) % 60) );
+    var hh = pad( parseInt( (remaining % 86400000) / 3600000), 10 );
+    var mm = pad( parseInt( ((remaining % 86400000) % 3600000) / 60000), 10 );
+    var ss = pad( parseInt( ((((remaining % 86400000) % 3600000) / 60000) * 60) % 60), 10 );
 
     return ( <span> {hh} : {mm} : {ss} </span> );
   },

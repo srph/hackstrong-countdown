@@ -15,8 +15,10 @@
   },
   "scripts": {
     "build": "browserify src/App.js --transform [ reactify --es6 ] -o dist/script.js",
+    "build-2": "browserify src-2/App.js --transform [ reactify --es6 ] -o dist/script-2.js",
     "uglify": "uglifyjs dist/script.js --compress --mangle  -o dist/script.js",
-    "start": "npm run build && npm run uglify"
+    "uglify-2": "uglifyjs dist/script-2.js --compress --mangle  -o dist/script-2.js",
+    "start": "npm run build && npm run build-2 && npm run uglify && npm run uglify-2"
   },
   "repository": {
     "type": "git",
