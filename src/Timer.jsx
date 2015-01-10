@@ -14,11 +14,11 @@ var Timer = React.createClass({
    */
   componentDidMount: function() {
     this.$countdown = setInterval(function() {
-      var current = new Date().getTime();
-      var deadline = this.props.deadline.getTime();
+      var current = new Date();
+      var deadline = this.props.deadline;
 
       this.setState({
-        remaining: new Date( deadline - current )
+        remaining: deadline - current
       });
     }.bind(this), 1000);
   },
@@ -32,9 +32,9 @@ var Timer = React.createClass({
 
   render: function() {
     var remaining = this.state.remaining;
-    var hh = pad( remaining.getHours() );
-    var mm = pad( remaining.getMinutes() );
-    var ss = pad( remaining.getSeconds() );
+    var hh = pad( Math.round( (remaining % 86400000) / 3600000) );
+    var mm = pad( Math.round( ((remaining % 86400000) % 3600000) / 60000) );
+    var ss = pad( Math.round( ((((remaining % 86400000) % 3600000) / 60000) * 60) % 60) );
 
     return ( <span> {hh} : {mm} : {ss} </span> );
   },
