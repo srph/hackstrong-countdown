@@ -25,9 +25,20 @@ var Container = React.createClass({
    * updates the current time each second
    */
   componentDidMount: function() {
-    this.$countdown = setInterval(function() {
-      this.setState({ current: new Date() });
-    }.bind(this), 1000);
+    // Fetch the `deadline` in the localStorage
+    var localDeadline = localStorage.getItem('ahk.deadline');
+
+    // We'd rather use a new date because `current` state
+    // _may_ be outdated
+    var current = new Date();
+
+    // And if the `deadline` exists in the localStorage, and it doesn't
+    // exceed the current date, let's use it.
+    if ( localDeadline !== null && (localDeadline - current) > 0 ) {
+      var deadline = new Date( parseInt(localDeadline, 10) );
+      this.setState({ started: true, deadline: deadline });
+      this._startCountdown();
+    }
   },
 
   /**
@@ -71,8 +82,22 @@ var Container = React.createClass({
     var deadline = new Date();
     deadline.setDate(deadline.getDate() + 1);
 
-    this.setState({ deadline: deadline });
-    this.setState({ started: true });
+    // Save the set deadline to the local storage
+    localStorage.setItem('ahk.deadline', deadline.getTime());
+
+    // Start the timer
+    this.setState({ started: true, deadline: deadline });
+    this._startCountdown();
+  },
+
+  /**
+   * Starts the countdown timer
+   * Updates the `current` state every second
+   */
+  _startCountdown: function() {
+    this.$countdown = setInterval(function() {
+      this.setState({ current: new Date() });
+    }.bind(this), 1000);
   }
 });
 
