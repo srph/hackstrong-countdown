@@ -6,7 +6,7 @@ Countdown timer for HackStrong (AteneoHacks).
 
 Check out the [demo](https://srph.github.io/hackstrong-countdown). You may check the alternative (which was requested in the last minute) [here](https://srph.github.io/hackstrong-countdown/index-2.html).
 
-\* Mind you that this was rushed and poorly design, so please do not refer to this project for Best Practices™. 
+\* Mind you that this was rushed and poorly designed, so please do not refer to this project for Best Practices™. 
 
 ## Acknowledgement
 
